@@ -1,4 +1,6 @@
 import { Layers } from "lucide-react";
+
+// Card Component: A reusable card component to display information
 function Card({
   title,
   description,
@@ -8,6 +10,7 @@ function Card({
   description: string;
   gradientPosition: "top-left" | "right" | "top-right";
 }) {
+  // Define gradient styles based on the gradientPosition
   const gradientStyles = {
     "top-left":
       "bg-[radial-gradient(18.3566%_46.049%_at_22.0483%_71.4395%,_#fff_0%,_rgba(255,255,255,0)_100%)]",
@@ -18,6 +21,7 @@ function Card({
   };
   return (
     <div className="relative flex border-0 transition duration-500 items-center flex-col flex-nowrap gap-10 h-min justify-center overflow-visible p-px decoration-clone w-fit rounded-2xl text-left">
+      {/* Content Wrapper */}
       <div className="z-10 w-full rounded-2xl bg-transparent text-white">
         <div className="w-full rounded-2xl bg-[rgb(3,5,22)] p-10 transition-all duration-300">
           <div className="mb-5 w-[46px] rounded-md bg-[rgba(96,166,231,0.6)] p-2">
@@ -31,21 +35,27 @@ function Card({
           </div>
         </div>
       </div>
+      {/* Gradient Background */}
       <div
         className={`absolute inset-0 z-0 h-[281px] w-full flex-none overflow-hidden rounded-2xl blur-sm ${gradientStyles[gradientPosition]}`}
       ></div>
+      {/* Black Overlay */}
       <div className="absolute inset-[2px] flex-none rounded-2xl bg-black"></div>
     </div>
   );
 }
+
+// Cards Component: A container to render multiple Card components
 export function Cards() {
   return (
     <div className="w-full bg-[rgb(3,5,22)] bg-[linear-gradient(0deg,rgb(12,38,69)_20%,rgb(3,5,22)_70%)] px-7 lg:px-28 py-14 text-base leading-[27px] text-white">
+      {/* Header Section */}
       <div>
         <p className="mb-10 text-[36px] leading-[40px] sm:text-[35px] sm:leading-[40px] lg:text-[42px] lg:leading-[56px] mx-auto text-[#b3d0f2]">
           Your best call for B2B/B2C product innovation
         </p>
       </div>
+      {/* Cards Grid */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8">
         <Card
           title="Experience"

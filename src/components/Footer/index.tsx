@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { companyLinks, socialLinks } from "../../data";
 
 export function Footer() {
+  // State to toggle the checkbox
+  const [toggle, setToggle] = useState(false);
+
   return (
     <div className="px-7 lg:px-28 py-10 bg-[rgb(7,22,38)]">
       <div className="lg:grid lg:grid-cols-3 my-10">
@@ -16,8 +20,17 @@ export function Footer() {
             </button>
           </div>
           <div className="flex gap-3 mt-5 items-center">
-            <div className="w-5 h-5 border-2 rounded-full bg-transparent border-white cursor-pointer flex items-center justify-center">
-              <input className="hidden" />
+            <div
+              className="w-5 h-5 border-2 rounded-full bg-transparent border-white cursor-pointer flex items-center justify-center "
+              onClick={() => setToggle(!toggle)}
+            >
+              {/* conditional rendering to render the dot if the checkbox is clicked */}
+              {toggle ? (
+                <div className="bg-white rounded-full w-2 h-2"></div>
+              ) : (
+                ""
+              )}
+              <input className="hidden" type="checkbox" />
             </div>
             <label className="text-sm text-white cursor-pointer">
               I agree to receive other notifications from Forcythe

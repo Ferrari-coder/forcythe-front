@@ -1,5 +1,6 @@
 import { ProjectImage } from "../ProjectImage/index";
 
+// Array of project images with their respective source URLs and widths
 const projects = [
   {
     src: "/images/stac.svg",
@@ -21,14 +22,15 @@ const projects = [
     src: "/images/exec-pro.svg",
     width: "398.281px",
   },
-  {  
+  {
     src: "/images/phone.svg",
-    width: "215.656px", 
+    width: "215.656px",
   },
 ];
 export function ImageScroller() {
   return (
     <div className="flex flex-col gap-5 bg-gradient-to-b from-[#030516] via-transparent to-transparent">
+      {/* First scrolling row (left to right animation) */}
       <div className="overflow-x-hidden flex flex-row relative w-full">
         {[0, 1].map((group) => (
           <div
@@ -52,6 +54,8 @@ export function ImageScroller() {
           </div>
         ))}
       </div>
+
+      {/* Second scrolling row (right to left animation) */}
       <div className="overflow-x-hidden flex flex-row relative w-full">
         {[0, 1].map((group) => (
           <div

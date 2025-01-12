@@ -1,11 +1,14 @@
 import { Play } from "lucide-react";
 import { useState } from "react";
 import { sparkstabs } from "../../data";
+
 export function Spark() {
+  // State to manage the active tab (default is the first tab with id 0)
   const [activeTab, setActiveTab] = useState(0);
 
   return (
     <div className="w-full bg-[#030516] text-white px-7 lg:px-28 py-20">
+      {/* Section Header */}
       <div className="mb-7 max-w-[720px]">
         <p className="text-[2rem] leading-[2.5rem] sm:text-[2.2rem] sm:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3rem]">
           <span>From </span>
@@ -16,10 +19,12 @@ export function Spark() {
         </p>
       </div>
       <div className="flex lg:items-end flex-col md:flex-row">
+        {/* Left Side (Tab Navigation + Content) */}
         <div className="flex mb-8 md:mb-0 basis-1/2">
           <div className="md:pr-10">
             <div className="mb-12 grid grid-cols-4 gap-1 border-2 border-[#B3D0F2] rounded-full p-3.5">
-            {sparkstabs.map((tab) => (
+              {/* Render each tab dynamically */}
+              {sparkstabs.map((tab) => (
                 <div
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
@@ -33,11 +38,12 @@ export function Spark() {
                 </div>
               ))}
             </div>
+            {/* Active Tab Content */}
             <p className="text-[32px] font-medium leading-[32px] mb-12">
-            {sparkstabs[activeTab].title}
+              {sparkstabs[activeTab].title}
             </p>
             <p className="text-lg leading-7 text-[#AEA9B1] mb-8">
-            {sparkstabs[activeTab].description}
+              {sparkstabs[activeTab].description}
             </p>
             <div className="relative w-[147.547px]">
               <button className="relative z-10 flex items-center justify-center gap-2 bg-white text-black font-semibold py-3 px-5 rounded-full transition-all duration-300 hover:bg-[#064386] hover:text-white">
@@ -48,6 +54,7 @@ export function Spark() {
             </div>
           </div>
         </div>
+        {/* Right Side (Image Section) */}
         <div className="basis-1/2 relative flex justify-center md:justify-end mt-6 md:mt-0">
           <img
             alt="tab-img"

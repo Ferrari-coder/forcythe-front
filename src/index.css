@@ -2,25 +2,32 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Keyframes for a left-to-right scrolling animation */
 @keyframes scroll {
   from {
-    transform: translateX(0);
+    transform: translateX(0); /* Start position */
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* End position, moving completely out of view to the left */
   }
 }
+
+/* Keyframes for a right-to-left reverse scrolling animation */
 @keyframes scroll-reverse {
   from {
-    transform: translateX(-100%);
+    transform: translateX(-100%); /* Start position, completely out of view to the left */
   }
   to {
-    transform: translateX(0);
+    transform: translateX(0); /* End position, moving into view from the left */
   }
 }
+
+/* Utility class for applying a continuous left-to-right scrolling animation */
 .animate-scroll {
-  animation: scroll 42.8888s linear infinite;
+  animation: scroll 42.8888s linear infinite; /* Smooth scrolling effect over 42.8888 seconds, repeats infinitely */
 }
+
+/* Utility class for applying a continuous right-to-left reverse scrolling animation */
 .animate-scroll-reverse {
-  animation: scroll-reverse 42.8888s linear infinite;
+  animation: scroll-reverse 42.8888s linear infinite; /* Smooth reverse scrolling effect over 42.8888 seconds, repeats infinitely */
 }

@@ -3,6 +3,8 @@ interface ProjectImageProps {
   width: string;
   index: number;
 }
+
+//Project image component for the image scroller 
 export function ProjectImage({ src, width, index }: ProjectImageProps) {
   return (
     <div

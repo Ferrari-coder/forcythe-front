@@ -1,11 +1,38 @@
 import { Menu } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navLinks } from "../../data";
+
 export function NavBar() {
+  // State to toggle the mobile menu
   const [toggle, setToggle] = useState(false);
+  // State to track if the page is scrolled
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // useEffect to handle scroll events and update `isScrolled` state
+  useEffect(() => {
+    const handleScroll = () => {
+      // If the page is scrolled more than 50px, set isScrolled to true
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        // Otherwise, set it to false
+        setIsScrolled(false);
+      }
+    };
+
+    // Add event listener for scroll events
+    window.addEventListener("scroll", handleScroll);
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []); // Empty dependency array ensures this effect runs only once
 
   return (
-    <nav className="fixed left-0 top-0 z-30 flex w-full items-center justify-between gap-10 bg-[#030516] px-7 lg:px-28 py-7 text-white backdrop-blur">
+    <nav
+      className={`fixed left-0 top-0 z-30 flex w-full items-center justify-between gap-10  px-7 lg:px-28 py-7 text-white backdrop-blur ${
+        isScrolled ? "backdrop-blur-md" : "bg-[#030516]"
+      }`}
+    >
+      {/* Logo and navigation links */}
       <div className="flex items-center gap-20">
         <a href="/">
           <img
@@ -25,12 +52,14 @@ export function NavBar() {
           <a href="/foundation">Foundation</a>
         </div>
       </div>
-      <div className="menuBtn bg-white bg-opacity-10 rounded-md p-3 md:hidden cursor-pointer">
+      <div className="bg-white bg-opacity-10 rounded-md p-3 md:hidden cursor-pointer">
         <Menu
           className="h-[18px] w-[18px]"
           onClick={() => setToggle(!toggle)}
         />
       </div>
+
+      {/* Mobile menu container */}
       <div
         className={`${
           !toggle ? "hidden" : "flex"

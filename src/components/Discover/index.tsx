@@ -2,18 +2,23 @@ import { useEffect, useState } from "react";
 import { tabs } from "../../data";
 
 export function Discover() {
+  // State to track the active tab (default is the first tab)
   const [activeTab, setActiveTab] = useState(1);
 
+  // Automatically switch tabs every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
+      // If the current tab is the last one, reset to the first; otherwise, move to the next tab
       setActiveTab((prevTab) => (prevTab === tabs.length ? 1 : prevTab + 1));
-    }, 7000);
+    }, 5000);
 
-    return () => clearInterval(interval); 
+    // Cleanup function to clear the interval when the component unmounts
+    return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="w-full bg-[#030516] text-white text-base leading-[27px] px-7 lg:px-28 py-10">
+      {/* Section Header */}
       <div>
         <div>
           <p className="max-w-4xl text-center text-[36px] leading-[40px]  sm:text-[35px] sm:leading-[40px] lg:text-[42px] lg:leading-[56px] mx-auto mb-12">
@@ -23,6 +28,8 @@ export function Discover() {
           </p>
         </div>
       </div>
+
+      {/* Tab Navigation */}
       <div className="w-full overflow-x-scroll scrollbar-hide">
         <div className="grid w-full min-w-[750px] grid-cols-5 border border-[#06438C] rounded-full">
           {tabs.map((tab: any) => (
@@ -39,6 +46,7 @@ export function Discover() {
                   : ""
               }`}
             >
+              {/* Tab Content */}
               <div className="mx-auto flex h-full w-fit min-w-fit items-center justify-center gap-x-1.5 gap-y-1.5 text-[17px] font-medium text-white">
                 <img
                   alt={tab.name}
@@ -49,23 +57,23 @@ export function Discover() {
                   src={tab.logo}
                   className="h-[27px] w-full"
                 />
+                {/* show the name of the brand for the first brand only */}
                 {tab?.id === 1 ? tab.name : ""}
               </div>
             </div>
           ))}
         </div>
       </div>
-      <div className={`mt-5 flex w-full md:w-[70%] lg:w-[50%] max-w-[840px] sm:flex-row flex-col bg-[#0C2645] rounded-[29px] p-7 xl:relative ${
-    activeTab === 1 ? "left-0" : ""
-  } ${
-    activeTab === 2 ? "left-[20%]" : ""
-  } ${
-    activeTab === 3 ? "left-[40%]" : ""
-  } ${
-    activeTab === 4 ? "left-[30%]" : ""
-  } ${
-    activeTab === 5 ? "left-[50%]" : ""
-  }`}>
+      {/* Active Tab Content */}
+      <div
+        className={`mt-5 flex w-full md:w-[70%] lg:w-[50%] max-w-[840px] sm:flex-row flex-col bg-[#0C2645] rounded-[29px] p-7 xl:relative ${
+          activeTab === 1 ? "left-0" : "" // Position dynamically based on active tab
+        } ${activeTab === 2 ? "left-[20%]" : ""} ${
+          activeTab === 3 ? "left-[40%]" : ""
+        } ${activeTab === 4 ? "left-[30%]" : ""} ${
+          activeTab === 5 ? "left-[50%]" : ""
+        }`}
+      >
         <div className="basis-[58%] pr-3">
           <p className="text-base leading-6 font-bold mb-4">
             {" "}
@@ -81,6 +89,7 @@ export function Discover() {
         </div>
         <div className="relative mt-0 h-[250px] max-w-[330px] object-[50%_0%] basis-[42%]">
           <div className="absolute left-0 top-0 z-0 h-[250px] max-w-[330px] animate-pulse bg-[rgba(96,166,231,0.1)] rounded-xl"></div>
+          {/* Dynamically render the image of the active tab */}
           <img
             alt="ceo"
             loading="lazy"

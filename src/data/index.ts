@@ -159,3 +159,33 @@ export const companyLinks = [
   { href: "/career", label: "Careers" },
   { href: "/blog", label: "Blog" },
 ];
+
+export const blogPosts = [
+  {
+    slug: "will-ai-take-over-art",
+    title: "Will AI take over Art?",
+    image:
+      "https://res.cloudinary.com/dhahjsrtn/image/upload/v1716992357/Will_AI_take_over_cc9401fe38.jpg",
+    date: "May 29th, 2024",
+    category: "Blog",
+    author: "The Reformist",
+  },
+  {
+    slug: "cryptocurrency-vs-tokens",
+    title: "Cryptocurrency vs Tokens",
+    image:
+      "https://res.cloudinary.com/dhahjsrtn/image/upload/v1716992003/Cryptocurrency_vs_token_f8865950e7.jpg",
+    date: "May 29th, 2024",
+    category: "Blog",
+    author: "The Reformist",
+  },
+  {
+    slug: "cryptocurrency-and-crypto-asset",
+    title: "Cryptocurrency and Crypto asset",
+    image:
+      "https://res.cloudinary.com/dhahjsrtn/image/upload/v1716991585/Cryptocurrency_and_crypto_assets_da92d172fc.jpg",
+    date: "May 29th, 2024",
+    category: "Blog",
+    author: "The Reformist",
+  },
+];

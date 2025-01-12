@@ -10,7 +10,7 @@ import { Stats } from "./components/Stats";
 
 function App() {
   return (
-    <>
+    <main className="bg-[#030516]">
       <NavBar />
       <Hero />
       <Discover />
@@ -20,7 +20,7 @@ function App() {
       <Blogs />
       <Cta />
       <Footer />
-    </>
+    </main>
   );
 }
 

@@ -1,36 +1,10 @@
 import { Play } from "lucide-react";
+import { blogPosts } from "../../data";
+
 export function Blogs() {
-  const blogPosts = [
-    {
-      slug: "will-ai-take-over-art",
-      title: "Will AI take over Art?",
-      image:
-        "https://res.cloudinary.com/dhahjsrtn/image/upload/v1716992357/Will_AI_take_over_cc9401fe38.jpg",
-      date: "May 29th, 2024",
-      category: "Blog",
-      author: "The Reformist",
-    },
-    {
-      slug: "cryptocurrency-vs-tokens",
-      title: "Cryptocurrency vs Tokens",
-      image:
-        "https://res.cloudinary.com/dhahjsrtn/image/upload/v1716992003/Cryptocurrency_vs_token_f8865950e7.jpg",
-      date: "May 29th, 2024",
-      category: "Blog",
-      author: "The Reformist",
-    },
-    {
-      slug: "cryptocurrency-and-crypto-asset",
-      title: "Cryptocurrency and Crypto asset",
-      image:
-        "https://res.cloudinary.com/dhahjsrtn/image/upload/v1716991585/Cryptocurrency_and_crypto_assets_da92d172fc.jpg",
-      date: "May 29th, 2024",
-      category: "Blog",
-      author: "The Reformist",
-    },
-  ];
   return (
     <div className="w-full h-full bg-[#030516] text-white px-7 lg:px-28 py-10 pb-24 text-base leading-[27px]">
+      {/* Header section with title and call-to-action button */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-12">
         <div>
           <p className="text-[2rem] leading-[2.5rem] sm:text-[2.2rem] sm:leading-[2.5rem] lg:text-[2.6rem] lg:leading-[3rem] mb-6 sm:mb-4 md:mb-0">
@@ -47,6 +21,7 @@ export function Blogs() {
           <div className="absolute right-[6px] top-[6px] z-0 h-12 w-[135px] border border-dashed border-gray-200 rounded-full"></div>
         </div>
       </div>
+      {/* Blog posts grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
         {blogPosts.map((post) => (
           <a
