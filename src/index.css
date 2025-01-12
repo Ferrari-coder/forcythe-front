@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+@keyframes scroll-reverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.animate-scroll {
+  animation: scroll 42.8888s linear infinite;
+}
+.animate-scroll-reverse {
+  animation: scroll-reverse 42.8888s linear infinite;
+}
