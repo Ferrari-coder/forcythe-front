@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
-import { tabs } from "../../data";
+import { tabs } from "../../constants";
+import { motion } from "framer-motion";
+import { textVariant } from "../../utilis/motion";
+import { SectionWrapper } from "../../hoc";
 
-export function Discover() {
+function Discover() {
   // State to track the active tab (default is the first tab)
   const [activeTab, setActiveTab] = useState(1);
 
@@ -21,11 +24,13 @@ export function Discover() {
       {/* Section Header */}
       <div>
         <div>
-          <p className="max-w-4xl text-center text-[36px] leading-[40px]  sm:text-[35px] sm:leading-[40px] lg:text-[42px] lg:leading-[56px] mx-auto mb-12">
-            <span>Discover the </span>
-            <span className="text-[#60A6E7]">transformative stories </span>
-            <span>of startups that scaled new heights with us</span>
-          </p>
+          <motion.div variants={textVariant(0.2)}>
+            <p className="max-w-4xl text-center text-[36px] leading-[40px]  sm:text-[35px] sm:leading-[40px] lg:text-[42px] lg:leading-[56px] mx-auto mb-12">
+              <span>Discover the </span>
+              <span className="text-[#60A6E7]">transformative stories </span>
+              <span>of startups that scaled new heights with us</span>
+            </p>
+          </motion.div>
         </div>
       </div>
 
@@ -102,3 +107,5 @@ export function Discover() {
     </div>
   );
 }
+
+export default SectionWrapper(Discover, "");

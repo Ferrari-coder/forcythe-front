@@ -1,16 +1,19 @@
 import { Play } from "lucide-react";
-import { blogPosts } from "../../data";
+import { blogPosts } from "../../constants";
+import { motion } from "framer-motion";
+import { fadeIn, textVariant } from "../../utilis/motion";
+import { SectionWrapper } from "../../hoc";
 
-export function Blogs() {
+function Blogs() {
   return (
     <div className="w-full h-full bg-[#030516] text-white px-7 lg:px-28 py-10 pb-24 text-base leading-[27px]">
       {/* Header section with title and call-to-action button */}
       <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-12">
-        <div>
+        <motion.div variants={textVariant(0.2)}>
           <p className="text-[2rem] leading-[2.5rem] sm:text-[2.2rem] sm:leading-[2.5rem] lg:text-[2.6rem] lg:leading-[3rem] mb-6 sm:mb-4 md:mb-0">
             Read our articles, news and product blog
           </p>
-        </div>
+        </motion.div>
         <div className="relative w-[135px]">
           <a href="/blog" className="block">
             <span className="relative z-10 flex items-center justify-center gap-2 bg-white text-black font-semibold px-2 py-3 rounded-full transition-all duration-300 hover:bg-[#064386] hover:text-white">
@@ -23,8 +26,9 @@ export function Blogs() {
       </div>
       {/* Blog posts grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12">
-        {blogPosts.map((post) => (
-          <a
+        {blogPosts.map((post, id) => (
+          <motion.a
+            variants={fadeIn("", "spring", id * 0.5, 0.75)}
             key={post.slug}
             href={`/blog/${post.slug}`}
             className="relative w-full cursor-pointer overflow-hidden pb-5 transition-all duration-500 rounded-[21px] hover:bg-white/5"
@@ -51,9 +55,11 @@ export function Blogs() {
                 {post.title}
               </h6>
             </div>
-          </a>
+          </motion.a>
         ))}
       </div>
     </div>
   );
 }
+
+export default SectionWrapper(Blogs, "");

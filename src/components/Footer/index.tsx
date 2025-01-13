@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { companyLinks, socialLinks } from "../../data";
+import { companyLinks, socialLinks } from "../../constants";
 
 export function Footer() {
   // State to toggle the checkbox

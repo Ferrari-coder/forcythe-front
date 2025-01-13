@@ -1,4 +1,8 @@
-export function Stats() {
+import { motion } from "framer-motion";
+import { textVariant } from "../../utilis/motion";
+import { SectionWrapper } from "../../hoc";
+
+function Stats() {
   return (
     <div
       className="w-full pt-20 pb-28 bg-[rgb(3,5,22)] text-white text-base leading-[27px]"
@@ -10,9 +14,11 @@ export function Stats() {
       {/* Inner container with a background image */}
       <div className="mx-auto max-w-[832px] bg-contain bg-no-repeat bg-center bg-[url('https://forcythe.com/images/arc-L.svg')]">
         {/* Text content container with centered alignment */}
+        <motion.div variants={textVariant(0.2)}>
         <div className="mx-auto max-w-[576px] text-center px-5 pt-60 pb-20">
           {/* Title section with responsive text sizes */}
           <div className="mx-auto mb-20 max-w-[448px]">
+            
             <p className="text-xl md:text-2xl lg:text-3xl font-medium">
               <span>We build solutions that help </span>
               <span className="text-[rgb(96,166,231)]">businesses </span>
@@ -64,7 +70,10 @@ export function Stats() {
             </div>
           </div>
         </div>
+        </motion.div>
       </div>
     </div>
   );
 }
+
+export default SectionWrapper(Stats, "");

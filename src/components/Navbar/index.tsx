@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
 import { useEffect, useState } from "react";
-import { navLinks } from "../../data";
+import { navLinks } from "../../constants";
 
 export function NavBar() {
   // State to toggle the mobile menu

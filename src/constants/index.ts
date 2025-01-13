@@ -189,3 +189,28 @@ export const blogPosts = [
     author: "The Reformist",
   },
 ];
+
+
+export const cardData = [
+  {
+    id: 0,
+    title: "Experience",
+    description:
+      "Decades of collective wisdom. Leverage our extensive experience to avoid common pitfalls and accelerate your business growth.",
+    gradientPosition: "top-left",
+  },
+  {
+    id: 1,
+    title: "Quick Support",
+    description:
+      "We are your reliable partner, always there when you need us, ensuring smooth operations at every stage of your growth.",
+    gradientPosition: "right",
+  },
+  {
+    id: 2,
+    title: "Cost Savings",
+    description:
+      "Maximising impact, minimising costs efficiency is key. We provide cost-effective solutions without compromising on quality.",
+    gradientPosition: "top-right",
+  },
+];
