@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-// import { styles } from "../style";
 import { staggerContainer } from "../utilis/motion";
 
 const SectionWrapper = (Component:any, idName:any) =>
@@ -10,10 +9,10 @@ const SectionWrapper = (Component:any, idName:any) =>
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, amount: 0.25}}
+        className="overflow-x-hidden"
       >
-        {/* <span className="hash-span" id={idName}>
-            &nbsp;
-        </span> */}
+        <span className="hash-span" id={idName}>
+        </span>
         <Component />
       </motion.section>
     );
